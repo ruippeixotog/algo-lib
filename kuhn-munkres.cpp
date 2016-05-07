@@ -1,17 +1,16 @@
 /**
  * Hungarian algorithm (Kuhn–Munkres algorithm)
  *
- * Finds a minimum weight perfect matching in a weighted bipartite graph.
- * Equivalently, finds a minimum cost assignment between `n` workers and `n`
- * jobs.
+ * Finds a minimum cost assignment of `n` jobs to `n` workers. Equivalently,
+ * finds a minimum weight perfect matching in a weighted bipartite graph.
  *
  * Parameters:
- *   - `w` (global): the weight of using the edge going from i to j;
- *   - `n`: the number of matches to make.
+ *   - `w` (global): the cost of assigning job j to worker i;
+ *   - `n`: the number of jobs and workers.
  *
  * Returns:
- *   - the function returns the total weight of the minimum weight assignment;
- *   - `mx` is filled with the assignment of i.
+ *   - the function returns the total weight of the minimum cost assignment;
+ *   - `mx` is filled with the job assignment for each worker i.
  *
  * Complexity:
  *   O(n^3).

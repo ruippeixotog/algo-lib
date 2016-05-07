@@ -19,7 +19,7 @@
  *   - `flow` is filled with the minimum cost flow network.
  *
  * Complexity:
- *   O((e + n*log(n)) * maxFlow), where `e` is the number of edges.
+ *   O((e + n*log(n)) * maxFlow), where `e` is the number of edges of the graph.
  */
 
 #include <algorithm>

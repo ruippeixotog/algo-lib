@@ -6,3 +6,5 @@
 *.in
 *.out
 *.exe
+
+.idea
