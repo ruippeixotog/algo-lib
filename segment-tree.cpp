@@ -91,6 +91,7 @@ template<class Node, class Op> struct SegTree {
       op.apply(tree[node], st, end);
       pending[node] = hasPending[node] ? pending[node].merge(op, st, end) : op;
       hasPending[node] = true;
+      return;
     }
     applyPending(node, st, end);
     if(i <= (st + end) / 2) update(left(node), st, (st + end) / 2, i, j, op);
