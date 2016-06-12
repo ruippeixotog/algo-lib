@@ -27,10 +27,28 @@
 
 struct UnionFind {
   int pset[MAXN];
+  int rank[MAXN];
 
-  void init(int n) { for(int i = 0; i < n; i++) pset[i] = i; }
+  void init(int n) { 
+    for(int i = 0; i < n; i++) {
+      pset[i] = i;
+      rank[i] = 0; 
+    }
+  }
   int get(int i) { return (pset[i] == i) ? i : (pset[i] = get(pset[i])); }
-  void join(int i, int j) { pset[get(i)] = get(j); }
+  void join(int i, int j) {
+    int xRoot = get(i);
+    int yRoot = get(j);
+    if (xRoot == yRoot) return;
+    if (rank[xRoot] < rank[yRoot])
+      pset[xRoot] = yRoot;
+    else if (rank[xRoot] > rank[yRoot])
+      pset[yRoot] = xRoot;
+    else {
+      pset[yRoot] = xRoot;
+      rank[xRoot] = rank[xRoot] + 1;
+    }
+  }
   bool sameSet(int i, int j) { return get(i) == get(j); }
 };
 
