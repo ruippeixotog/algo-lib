@@ -35,7 +35,11 @@ struct UnionFind {
       rank[i] = 0; 
     }
   }
-  int get(int i) { return (pset[i] == i) ? i : (pset[i] = get(pset[i])); }
+
+  int get(int i) {
+    return (pset[i] == i) ? i : (pset[i] = get(pset[i]));
+  }
+
   void join(int i, int j) {
     int xRoot = get(i);
     int yRoot = get(j);
@@ -49,7 +53,10 @@ struct UnionFind {
       rank[xRoot] = rank[xRoot] + 1;
     }
   }
-  bool sameSet(int i, int j) { return get(i) == get(j); }
+
+  bool sameSet(int i, int j) {
+    return get(i) == get(j);
+  }
 };
 
 // -----------------------------------------------
