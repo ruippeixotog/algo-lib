@@ -55,6 +55,10 @@ template<class Node, class Op> struct SegTree {
     pending.resize(4 * n + 1);
   }
 
+  SegTree(int n, int* arr): SegTree(n) {
+    build(arr);
+  }
+
   inline int left(int node) { return 2 * node; }
   inline int right(int node) { return 2 * node + 1; }
 
@@ -152,8 +156,7 @@ int arr[MAXN];
 
 int main() {
   int n = 100;
-  SegTree<Node, Op> tree(n);
-  tree.build(arr);
+  SegTree<Node, Op> tree(n, arr);
 
   char code; int st, end, arg;
   cout << "> ";

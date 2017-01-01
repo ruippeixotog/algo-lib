@@ -29,6 +29,11 @@ struct UnionFind {
   int pset[MAXN];
   int rank[MAXN];
 
+  UnionFind() {}
+  UnionFind(int n) {
+    init(n);
+  }
+
   void init(int n) { 
     for(int i = 0; i < n; i++) {
       pset[i] = i;
@@ -65,9 +70,8 @@ struct UnionFind {
 
 int main() {
   int n = 5;
-  UnionFind uf;
+  UnionFind uf(n);
 
-  uf.init(n);
   for(int i = 0; i < n; i++)
     assert(uf.get(i) == i);
 
